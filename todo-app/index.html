@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todo App</h1>
+
+    <input id="input" type="text" placeholder="Search Todo">
+    <label>
+        <input id="checkboxID" type="checkbox"> Hide Completed
+    </label>
+    
+    <div id="newTodos"></div>
+
+   <form id="input-form">
+        <input type="text" placeholder="New todo item" name="newTodoItem">
+        <button>Add new Todo</button>
+    </form> 
+    
+    
+</body>
+<script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+<script src="todo-functions.js"></script>
+<script src="todo-app.js"></script>
+</html>
