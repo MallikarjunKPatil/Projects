@@ -69,7 +69,7 @@ document.querySelector('#input-form').addEventListener('submit', (e) => {
 })
 
 // Create a checkbox and setup event listener -> "Hide completed"
-document.querySelector('#checkboxID').addEventListener('change',  (e) => {
+document.querySelector('#checkboxID').addEventListener('change', (e) => {
     console.log(e.target.checked);
     filters.hideCompleted = e.target.checked
     renderTods(todos, filters)
