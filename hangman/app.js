@@ -1,29 +1,21 @@
-//Prototypical Inheritance
 
-// Object: myObject --> Object.prototype --> null
+const hangmanInst1= new Hangman('CAT',3)
 
-//// Array: myArray --> Array.prototype --> Object.prototype --> null
+console.log(hangmanInst1.getPuzzle());
+console.log(hangmanInst1.remainingGuesses);
 
-const team = ['luke','Maddision']
-Array.prototype.fill = ()=>{return 'fill method'}
-console.log(team);
-console.log(team.fill);
-console.log(team.hasOwnProperty('fill'));
+window.addEventListener('keypress',function(e){
+    const guess = String.fromCharCode(e.charCode)
+    hangmanInst1.makeGuess(guess)
+   
 
-//// Function: myFunction --> Function.prototype --> Object.prototype --> null
+    const puzzleEl= document.querySelector('#disPuzzle')
+    const remainingGuessesEl = document.querySelector('#disremainingGuesses')
+    
+    puzzleEl.textContent = hangmanInst1.getPuzzle()
+    remainingGuessesEl.textContent = hangmanInst1.remainingGuesses
+    console.log(hangmanInst1.statusOfGame);
+    console.log(hangmanInst1.guessedLetters);
 
-const getScore = () => 1
-console.log(getScore)
+})
 
-
-//// Strings: myString --> String.prototype --> Object.prototype --> null
-
-const product = 'computer'
-console.log(product);
-const otherProduct = new String('Phone')
-console.log(otherProduct);
-
-//Primitive value: string,number,boolean,null,undefined
-//// Number: myNum --> Number.prototype --> Object.prototype --> null
-//// Boolean: myBol --> Boolean.prototype --> Object.prototype --> null
-//null,undefined dont have objects
