@@ -1,7 +1,7 @@
 
-const hangmanInst1= new Hangman('CAT',3)
+const hangmanInst1= new Hangman('CAT park',3)
 
-console.log(hangmanInst1.getPuzzle());
+console.log(hangmanInst1.puzzle);
 console.log(hangmanInst1.remainingGuesses);
 
 window.addEventListener('keypress',function(e){
@@ -11,11 +11,9 @@ window.addEventListener('keypress',function(e){
 
     const puzzleEl= document.querySelector('#disPuzzle')
     const remainingGuessesEl = document.querySelector('#disremainingGuesses')
-    
-    puzzleEl.textContent = hangmanInst1.getPuzzle()
-    remainingGuessesEl.textContent = hangmanInst1.remainingGuesses
-    console.log(hangmanInst1.statusOfGame);
-    console.log(hangmanInst1.guessedLetters);
 
-})
+    puzzleEl.textContent = hangmanInst1.puzzle
+    remainingGuessesEl.textContent = hangmanInst1.statusMessage
+}
+)
 
