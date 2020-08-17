@@ -16,16 +16,22 @@ window.addEventListener('keypress',function(e){
     remainingGuessesEl.textContent = hangmanInst1.statusMessage
 }
 )
-
-const request = new XMLHttpRequest()
-request.open('GET','http://restcountries.eu/rest/v2/all')
-request.send()
-request.addEventListener('readystatechange',(e)=>{
-
-    if(e.target.readyState === 4 && e.target.status === 200)
-    {   
-        const data= JSON.parse(e.target.responseText)
-        const country= data.find((country) => country.alpha2Code === 'IN')
-        console.log(country.name);
+getPuzzle(6,(error,puzzle)=>{
+    if(error){
+        console.log(`Error is: ${error}`);
+    }
+    else{
+        console.log(puzzle);
     }
 })
+
+getCountry('IN',(error,country)=>{
+    if(error){
+        console.log(`Error is: ${error}`);
+    }
+    else{
+        console.log(`Country Name is ${country.name}`);
+    }
+    
+})
+
