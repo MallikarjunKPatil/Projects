@@ -7,8 +7,6 @@ console.log(hangmanInst1.remainingGuesses);
 window.addEventListener('keypress',function(e){
     const guess = String.fromCharCode(e.charCode)
     hangmanInst1.makeGuess(guess)
-   
-
     const puzzleEl= document.querySelector('#disPuzzle')
     const remainingGuessesEl = document.querySelector('#disremainingGuesses')
 
