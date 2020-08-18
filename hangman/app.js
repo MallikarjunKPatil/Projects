@@ -16,22 +16,16 @@ window.addEventListener('keypress',function(e){
     remainingGuessesEl.textContent = hangmanInst1.statusMessage
 }
 )
-getPuzzle(6,(error,puzzle)=>{
-    if(error){
-        console.log(`Error is: ${error}`);
-    }
-    else{
-        console.log(puzzle);
-    }
+
+getPuzzle(2).then((puzzle)=>{
+    console.log(puzzle);
+}).catch((err) => {
+    console.log(err);
 })
 
-getCountry('IN',(error,country)=>{
-    if(error){
-        console.log(`Error is: ${error}`);
-    }
-    else{
-        console.log(`Country Name is ${country.name}`);
-    }
-    
+getCountry('IN').then((data)=>{
+    console.log(`Country code is: ${data.name}`);
+}).catch((err) => {
+    console.log(err);
 })
 

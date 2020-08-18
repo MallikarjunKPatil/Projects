@@ -1,24 +1,36 @@
-const getPuzzle = (wordCount,callback)=>{
-
-    const request = new XMLHttpRequest()
-    request.open('GET',`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
-    request.send()
-    request.addEventListener('readystatechange',(e)=>{
+const getPuzzle = (wordCount)=> {
     
-        if(e.target.readyState === 4 && e.target.status === 200)
-        {   
-            const data= JSON.parse(e.target.responseText)
-            callback(undefined,data.puzzle)
+    return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response)=>{
+        if(response.status === 200){
+            return response.json()
         }
-        else if(e.target.readyState === 4)
-        {
-            callback('Error Occured',undefined)
+        else{
+            
+            throw new Error('Unable to fetch puzzle')
         }
-    })}
+    }).then((data)=>{
+        return data.puzzle
+    })
+}
+
+const getCountry = (countryCode) => {
+    const proxyurl = "http://cors-anywhere.herokuapp.com/";
+    const url = "http://restcountries.com/v2/all?fields=name,alpha2Code,flag,callingCodes";
+    return fetch(proxyurl+url).then((response)=>{
+    if(response.status === 200){
+        return response.json()
+    }
+    else
+    {
+        throw new Error('Error Occured while fetching country')
+    }
+    }).then((data)=>data.find((country)=> country.alpha2Code === countryCode))
+}
 
 
-const getCountry = (countryCode,callback) => {
 
+const getCountryOld = (countryCode) => new Promise((resolve,reject)=>{
+    
     const request = new XMLHttpRequest()
     request.open('GET','http://restcountries.eu/rest/v2/all')
     request.send()
@@ -28,11 +40,11 @@ const getCountry = (countryCode,callback) => {
         {   
             const data= JSON.parse(e.target.responseText)
             const countryObject= data.find((country) => country.alpha2Code === countryCode)
-            callback( undefined ,countryObject)
+            resolve(countryObject)
         }
         else if (e.target.readyState === 4 ){
-            callback('Error Occoured Country')
+            reject('Error Occured while fetching country')
         }
     })
-}
+})
 
