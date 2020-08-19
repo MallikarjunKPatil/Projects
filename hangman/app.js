@@ -1,31 +1,28 @@
+const puzzleEl= document.querySelector('#disPuzzle')
+const remainingGuessesEl = document.querySelector('#disremainingGuesses')
+let hangmanInst1
 
-const hangmanInst1= new Hangman('CAT park',3)
-
-console.log(hangmanInst1.puzzle);
-console.log(hangmanInst1.remainingGuesses);
 
 window.addEventListener('keypress',function(e){
     const guess = String.fromCharCode(e.charCode)
     hangmanInst1.makeGuess(guess)
-    const puzzleEl= document.querySelector('#disPuzzle')
-    const remainingGuessesEl = document.querySelector('#disremainingGuesses')
-
-    puzzleEl.textContent = hangmanInst1.puzzle
-    remainingGuessesEl.textContent = hangmanInst1.statusMessage
+    render()
 }
 )
 
-getPuzzle(2).then((puzzle)=>{
-    console.log(puzzle);
-}).catch((err) => {
-    console.log(err);
-})
+const render = ()=>{
+    puzzleEl.textContent = hangmanInst1.puzzle
+    remainingGuessesEl.textContent = hangmanInst1.statusMessage
+}
 
-// getCountry('IN').then((data)=>{
-//     console.log(`Country code is: ${data.name}`);
-// }).catch((err) => {
-//     console.log(err);
-// })
+const startGame = async () => {
+    const puzzle = await getPuzzle(1)
+    hangmanInst1 = new Hangman(puzzle,4)
+    render()
+}
+
+document.querySelector('#reset').addEventListener('click',startGame)
+startGame()
 
 getCurrentCountry().then(country => {
     console.log(country.name);
@@ -33,11 +30,4 @@ getCurrentCountry().then(country => {
     console.log(err);
 })
 
-// getLocation().then((data)=>{
-//     console.log(`Your city is: ${data.city} in a region ${data.region} in a country ${data.country}`);
-//     return getCountry(data.country)
-// }).then((data)=>{
-//     console.log(`Country name is: ${data.name}`);
-// }).catch((err)=>{
-//     console.log(err);
-// })
+
