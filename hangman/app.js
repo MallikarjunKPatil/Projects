@@ -21,9 +21,23 @@ getPuzzle(2).then((puzzle)=>{
     console.log(err);
 })
 
-getCountry('IN').then((data)=>{
-    console.log(`Country code is: ${data.name}`);
-}).catch((err) => {
+// getCountry('IN').then((data)=>{
+//     console.log(`Country code is: ${data.name}`);
+// }).catch((err) => {
+//     console.log(err);
+// })
+
+getCurrentCountry().then(country => {
+    console.log(country.name);
+}).catch(err => {
     console.log(err);
 })
 
+// getLocation().then((data)=>{
+//     console.log(`Your city is: ${data.city} in a region ${data.region} in a country ${data.country}`);
+//     return getCountry(data.country)
+// }).then((data)=>{
+//     console.log(`Country name is: ${data.name}`);
+// }).catch((err)=>{
+//     console.log(err);
+// })
