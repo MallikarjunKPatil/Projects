@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="images/favicon.png">
 </head>
 <body>
-<div id="RenderPuzzle" >
-    <p id="disPuzzle"></p>
-    <p id="disremainingGuesses"></p>
-</div>
-<button id="reset">Reset</button>
-
+    <div>
+         <div id="disPuzzle" class="puzzle"></div>  
+        <p id="disremainingGuesses"></p>
+        <button id="reset" class="button">Reset</button>
+    </div>
 </body>
-<script src='request.js'></script>
-<script src='hangman.js'></script>
-<script src='app.js'></script>
+<script src='scripts/request.js'></script>
+<script src='scripts/hangman.js'></script>
+<script src='scripts/app.js'></script>
 </html>

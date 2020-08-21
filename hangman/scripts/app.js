@@ -11,8 +11,19 @@ window.addEventListener('keypress',function(e){
 )
 
 const render = ()=>{
-    puzzleEl.textContent = hangmanInst1.puzzle
+
+    puzzleEl.innerHTML = ''
+   
     remainingGuessesEl.textContent = hangmanInst1.statusMessage
+
+    console.log(hangmanInst1.puzzle);
+    
+    hangmanInst1.puzzle.split('').forEach((puzzleLetter)=>{
+        const puzzleLetterEl = document.createElement('span')
+        puzzleLetterEl.textContent = puzzleLetter
+        puzzleEl.appendChild(puzzleLetterEl)
+    })
+
 }
 
 const startGame = async () => {
@@ -24,10 +35,10 @@ const startGame = async () => {
 document.querySelector('#reset').addEventListener('click',startGame)
 startGame()
 
-getCurrentCountry().then(country => {
-    console.log(country.name);
-}).catch(err => {
-    console.log(err);
-})
+// getCurrentCountry().then(country => {
+//     console.log(country.name);
+// }).catch(err => {
+//     console.log(err);
+// })
 
 

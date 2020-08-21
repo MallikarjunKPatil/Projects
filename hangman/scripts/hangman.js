@@ -7,6 +7,7 @@ class Hangman {
         this.statusOfGame = 'playing'
     }
     calStatus(){
+        
         let isFinished = this.allwords.every((letter) => this.guessedLetters.includes(letter) || letter === ' ')
         // let isFinished = true
         // this.allwords.forEach(element => {
