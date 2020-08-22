@@ -7,7 +7,7 @@ let notes = getSavedNotes()
 let note = notes.find( (note) => note.id === noteId)
 
 if (!note) {
-    location.assign('/notes-app/index.html')
+    location.assign('/Projects/notes-app/index.html')
 }
 
 titleElement.value = note.title
@@ -37,7 +37,7 @@ removeElement.addEventListener('click',  (e) => {
     const timestamp1 = moment().valueOf()
     note.updatedAt = timestamp1
     saveNotes(notes)
-    location.assign('/notes-app/index.html')
+    location.assign('/Projects/notes-app/index.html')
 })
 
 window.addEventListener('storage', (e) => {
@@ -46,7 +46,7 @@ window.addEventListener('storage', (e) => {
         let note = notes.find((note) => note.id === noteId)
 
         if (!note) {
-            location.assign('/notes-app/index.html')
+            location.assign('/Projects/notes-app/index.html')
         }
 
         titleElement.value = note.title
