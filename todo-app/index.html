@@ -4,27 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo App</title>
+    <link rel="icon" href="/Projects/todo-app/images/favicon.png">
+    <link rel="stylesheet" href="/Projects/todo-app/styles/styles.css">
 </head>
 
 <body>
-    <h1>Todo App</h1>
+    <div class="header">
+        <div class="container">
+            <h1 class="header__title">Todo App</h1>
+            <h2 class="header__subtitle">What do you need to do?</h2>
+        </div>
+    </div>
 
-    <input id="input" type="text" placeholder="Search Todo">
-    <label>
-        <input id="checkboxID" type="checkbox"> Hide Completed
-    </label>
+    <div class="actions">
+        <div class="actions__container">
+            <input id="input" class="input" type="text" placeholder="Search Todo">
+            <label class="checkbox">
+                <input id="checkboxID" type="checkbox"> Hide Completed
+            </label>
+        </div>
+    </div>
     
-    <div id="newTodos"></div>
+    <div class="container">
+        <form id="input-form">
 
-   <form id="input-form">
-        <input type="text" placeholder="New todo item" name="newTodoItem">
-        <button>Add new Todo</button>
-    </form> 
+            <div id="newTodos"></div>
+
+            <input type="text" class="input" placeholder="New todo item" name="newTodoItem">
+            <button class="button">Add new Todo</button>
+        </form> 
+    </div>
+
+
+
     
     
 </body>
 <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
-<script src="todo-functions.js"></script>
-<script src="todo-app.js"></script>
+<script src="scripts/todo-functions.js"></script>
+<script src="scripts/todo-app.js"></script>
 </html>

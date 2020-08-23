@@ -50,18 +50,15 @@ document.querySelector('#input').addEventListener('input',  (e) => {
 
 document.querySelector('#input-form').addEventListener('submit', (e) => {
     e.preventDefault();
-  
+    const text=e.target.elements.newTodoItem.value.trim()
     // Add new item to the todos array with that text data (completed value of false)
-    if(e.target.elements.newTodoItem.value){
-        todos.push({ id:uuidv4(), text : e.target.elements.newTodoItem.value , taskCompleted : false})
+    if(text.length > 0){
+        todos.push({ id:uuidv4(), text, taskCompleted : false})
         saveTodos(todos)
         // Rerender application
         renderTods(todos, filters)
     }else {
-        alert('Please enter some todo value')
-        // const summary = document.createElement('p')
-        // summary.textContent = `Please enter todo value`
-        // document.querySelector('#input-form').appendChild(summary)
+           alert('Please enter some todo value')
     }
   
     // Clear the input field value
