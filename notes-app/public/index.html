@@ -2,11 +2,9 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="/Projects/notes-app/styles/styles.css">
-
         <title>Notes App</title>
-        <link rel="icon" href="/Projects/notes-app/images/favicon.png">
-
+        <link href="/images/favicon.png" rel="icon">
+        <link href="/styles/styles.css" rel="stylesheet">
     </head>
     <body>
         <header class="header">
@@ -15,7 +13,6 @@
                 <h2 class="header__subtitle">Take notes and never forget</h2>
             </div>
         </header>
-
         <div class="actions">
             <div class="actions__container">
                 <input id="search-text" type="text" class="input" placeholder="Filter notes">
@@ -26,17 +23,10 @@
                 </select>
             </div>
         </div>
-        
         <div class="container">
-            <div id="notes">
-            </div>
-            <button id="create-note" class='button'>Create Note</button>  
-        </div>
-
-
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js'></script>
-        <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
-        <script src="scripts/notes-functions.js"></script>
-        <script src="scripts/notes-app.js"></script>
+            <div id="notes"></div>
+            <button id="create-note" class="button">Create Note</button>
+        </div>    
+        <script src="/scripts/index-bundle.js"></script>
     </body>
 </html>

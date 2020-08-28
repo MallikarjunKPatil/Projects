@@ -1,36 +1,33 @@
 import Hangman from './hangman'
-import getPuzzle from './request'
+import getPuzzle from './requests'
 
-const puzzleEl= document.querySelector('#disPuzzle')
-const remainingGuessesEl = document.querySelector('#disremainingGuesses')
-let hangmanInst1
+const puzzleEl = document.querySelector('#puzzle')
+const guessesEl = document.querySelector('#guesses')
+let game1
 
-
-window.addEventListener('keypress',function(e){
+window.addEventListener('keypress', (e) => {
     const guess = String.fromCharCode(e.charCode)
-    hangmanInst1.makeGuess(guess)
+    game1.makeGuess(guess)
     render()
-}
-)
+})
 
-const render = ()=>{
-
+const render = () => {
     puzzleEl.innerHTML = ''
-    remainingGuessesEl.textContent = hangmanInst1.statusMessage
-    
-    hangmanInst1.puzzle.split('').forEach((puzzleLetter)=>{
-        const puzzleLetterEl = document.createElement('span')
-        puzzleLetterEl.textContent = puzzleLetter
-        puzzleEl.appendChild(puzzleLetterEl)
-    })
+    guessesEl.textContent = game1.statusMessage
 
+    game1.puzzle.split('').forEach((letter) => {
+        const letterEl = document.createElement('span')
+        letterEl.textContent = letter
+        puzzleEl.appendChild(letterEl)
+    })
 }
 
 const startGame = async () => {
-    const puzzle = await getPuzzle(1)
-    hangmanInst1 = new Hangman(puzzle,4)
+    const puzzle = await getPuzzle('2')
+    game1 = new Hangman(puzzle, 5)
     render()
 }
 
-document.querySelector('#reset').addEventListener('click',startGame)
+document.querySelector('#reset').addEventListener('click', startGame)
+
 startGame()
