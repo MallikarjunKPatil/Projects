@@ -59,7 +59,7 @@ removeTodo =  (id) => {
     }
 }
 
-// Tp set checkbox value to todo property
+// To set checkbox value to todo property
 toggleTodo = (id,e) => {
     todos.find( (todo) => { 
         if(todo.id === id){
