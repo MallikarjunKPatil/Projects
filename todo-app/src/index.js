@@ -5,7 +5,7 @@
 
 // Add necessary imports
 import { setFilters } from './filters'
-import {getTodos,createTodo,removeTodo,toggleTodo} from './todos'
+import {loadTodos,createTodo} from './todos'
 import {renderTodos} from './views'
 
 // Render initial todos
@@ -49,6 +49,7 @@ document.querySelector('#input-form').addEventListener('submit', (e) => {
 window.addEventListener('storage', (e) => {
     if (e.key === 'todos') {
         renderNotes()
+        loadTodos()
     }
 })
 

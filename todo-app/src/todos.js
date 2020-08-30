@@ -8,7 +8,14 @@ let todos = []
 // Arguments: none
 const loadTodos = () => {
     const todoJSON = localStorage.getItem('todos')
-    return todoJSON ? JSON.parse(todoJSON) : []
+    try{
+        return todoJSON ? JSON.parse(todoJSON) : []
+    }
+    catch(e)
+    {
+        return[]
+    }
+    
 }
 // Return value: none
 
@@ -28,12 +35,14 @@ const getTodos = () => todos
 // createTodo
 // Arguments: todo text
 const createTodo =(text) =>{
-    if (typeof text === 'string'){
-        todos.push({ 
+    if (typeof text === 'string')
+    {
+        todos.push(
+            { 
             id:uuidv4(), 
-            text: text, 
-            taskCompleted : false}
-            )
+            text, 
+            taskCompleted : false
+            })
         saveTodos()
     }
 }
@@ -58,6 +67,7 @@ const toggleTodo = (id) => {
     todos.find( (todo) => { 
         if(todo.id === id){
             todo.taskCompleted = !todo.taskCompleted
+            saveTodos()
         }
     })
 }
@@ -66,4 +76,4 @@ const toggleTodo = (id) => {
 // Make sure to call loadTodos and setup the exports
 todos = loadTodos()
 
-export {getTodos,createTodo,removeTodo,toggleTodo,saveTodos}
+export {getTodos,createTodo,removeTodo,toggleTodo,saveTodos,loadTodos}

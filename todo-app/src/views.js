@@ -60,7 +60,6 @@ const generateTodoDOM = (todo) => {
     chekBox.checked = todo.taskCompleted
     chekBox.addEventListener('click', (e) => {
         toggleTodo(todo.id)
-        saveTodos()
         renderTodos()
     })
     containerEl.appendChild(chekBox)
@@ -80,7 +79,6 @@ const generateTodoDOM = (todo) => {
     todoEl.appendChild(button)
     button.addEventListener('click', () => {
         removeTodo(todo.id)
-        saveTodos()
         renderTodos()
     })
 
