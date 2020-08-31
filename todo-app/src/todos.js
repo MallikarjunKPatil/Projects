@@ -3,9 +3,6 @@ import uuidv4 from 'uuid/v4'
 // Setup the empty todos array
 let todos = []
 
-
-// loadTodos
-// Arguments: none
 const loadTodos = () => {
     const todoJSON = localStorage.getItem('todos')
     try{
@@ -15,25 +12,14 @@ const loadTodos = () => {
     {
         return[]
     }
-    
 }
-// Return value: none
 
-// saveTodos
-// Arguments: none
 const saveTodos = () => {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
-// Return value: none
 
-
-// getTodos
-// Arguments: none
 const getTodos = () => todos
-// Return value: todos array
 
-// createTodo
-// Arguments: todo text
 const createTodo =(text) =>{
     if (typeof text === 'string')
     {
@@ -46,11 +32,7 @@ const createTodo =(text) =>{
         saveTodos()
     }
 }
-// Return value: none
 
-
-// removeTodo
-// Arguments: id of todo to remove
 const removeTodo = (id) =>{
     const todoIndex = todos.findIndex( (todo) => todo.id === id)
 
@@ -59,10 +41,7 @@ const removeTodo = (id) =>{
     }
     saveTodos()
 }
-// Return value: none
 
-// toggleTodo
-// Arguments: id of todo to toggle
 const toggleTodo = (id) => {
     todos.find( (todo) => { 
         if(todo.id === id){
@@ -71,9 +50,8 @@ const toggleTodo = (id) => {
         }
     })
 }
-// Return value: none
 
-// Make sure to call loadTodos and setup the exports
+//Setting todo items to todos array
 todos = loadTodos()
 
 export {getTodos,createTodo,removeTodo,toggleTodo,saveTodos,loadTodos}

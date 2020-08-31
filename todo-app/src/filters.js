@@ -1,26 +1,17 @@
-// Set up filters default object
 const filters = {
     searchText: '',
     hideCompleted: false
 }
 
-// getFilters
 const getFilters = () => filters
-// Arguments: none
-// Return value: filters object
 
-// setFilters
-// Arguments: updates object with optional searchText or hideCompleted
-const setFilters = (updates) => {
-    if (typeof updates.searchText === 'string') {
-        filters.searchText = updates.searchText
+const setFilters = ({ searchText, hideCompleted }) => {
+    if (typeof searchText === 'string') {
+        filters.searchText = searchText
     }
-    if (typeof updates.hideCompleted === 'boolean') {
-        filters.hideCompleted = updates.hideCompleted
+    if (typeof hideCompleted === 'boolean') {
+        filters.hideCompleted = hideCompleted
     }
 }
-// Return value: none
 
-// Make sure to set up the exports
-
-export {getFilters,setFilters}
+export { getFilters, setFilters }
