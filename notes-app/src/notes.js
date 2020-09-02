@@ -11,7 +11,7 @@ const loadNotes = () => {
         return notesJSON ? JSON.parse(notesJSON) : []
     } catch (e) {
         return []
-    } 
+    }
 }
 
 // Save the notes to localStorage
